@@ -1,0 +1,76 @@
+0.准备工作
+    右击打开Git Bash Here进入git窗口
+    cd vscode进入相应的文件
+    配置用户名
+        git config --global user.name 'xuzhuodong'
+    配置邮箱
+        git config --global user.email '1056409086@qq.com'
+1.clone克隆
+    $ git clone 'https://github.com/xuzhuodong/vscode.git'  (从远程仓库上下载克隆过来)
+        这个地址是在你的git账户上建立的文件的地址，复制下来
+        Cloning into 'vscode'...
+        warning: You appear to have cloned an empty repository.  (因为我们的这个文件刚开始啥也没有)
+2.add添加文件  
+    在本地编辑器新建一个空的index.js文件，然后添加到git上去
+    $ git add index.js
+3.commit提交
+    git commit -m ''是提交全部文件(只有一个令当回事)，想提交具体的文件的话 git commit -m 'add index.js'
+    git commit -m 'add index.js'
+        $ git commit -m 'add index.js'
+        [master (root-commit) 8b44c4e] add index.js
+         1 file changed, 0 insertions(+), 0 deletions(-)
+         create mode 100644 index.js
+
+4.push推送。我们需要把本地仓库推送到远程仓库上去。
+    git push回车。出现弹窗。再次输入用户名(不是邮箱)和密码
+        $ git push
+        Enumerating objects: 3, done.
+        Counting objects: 100% (3/3), done.
+        Writing objects: 100% (3/3), 210 bytes | 12.00 KiB/s, done.
+        Total 3 (delta 0), reused 0 (delta 0)
+        To https://github.com/xuzhuodong/vscode.git
+         * [new branch]      master -> master
+    提交成功，再次进入github刷新看一下。
+5.pull拉取代码
+    git pull
+      $ git pull
+      Already up to date. 因为我们这个代码什么都没有
+    或者我们可以直接在github上打开index.js文件，直接在上面编辑
+    这时候本地还是什么都没有，
+        所以在此git pull
+            $ git pull
+            remote: Enumerating objects: 8, done.
+            remote: Counting objects: 100% (8/8), done.
+            remote: Compressing objects: 100% (2/2), done.
+            remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+            Unpacking objects: 100% (6/6), done.
+            From https://github.com/xuzhuodong/vscode
+               8b44c4e..c508de3  master     -> origin/master
+            Updating 8b44c4e..c508de3
+            Fast-forward
+             index.js | 1 +
+             1 file changed, 1 insertion(+)
+    然后再去本地看发现index.js已经是我们修改后的内容了
+6.checkout。检出分支
+    假如我在本地编辑器把这个index.js删除了。不过删除后我又后悔了，想找回来
+    这时候在git窗口上输入：
+        git checkout index.js回车
+            $ git checkout index.js
+            Updated 1 path from the index
+    然后再去看本地编辑器，index.js文件又回来了。
+    git分为三部分：远程仓库、本地仓库、自己的工作区。
+        因为这里删除只是我们自己的工作区的代码，而本地仓库还在，所以我们能从本地仓库找回来
+        这就是checkout
+===============================================
+vscode使用Git基本操作
+    git clone克隆远程仓库到本地
+    使用vscode打开文件夹
+        add
+        commit
+        pull
+        checkout
+        
+
+
+
+
